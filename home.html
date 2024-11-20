@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+      /* Ensure the body has full height */
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+
+      .image-container {
+        position: relative;
+        height: 100vh; /* Full viewport height */
+        width: 100%;
+        background-image: url('https://images.unsplash.com/photo-1536585806558-81c7ea4d393d?q=80&w=870&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+      }
+
+      .text-on-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        font-weight: bold;
+        color: white;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      }
+
+      /* Adjust text size for smaller screens */
+      @media (max-width: 768px) {
+        .text-on-image {
+          font-size: 1.5rem;
+        }
+      }
+
+      /* Adjust text size for extra small screens */
+      @media (max-width: 480px) {
+        .text-on-image {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+
+    <title>Text on Image</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="sign.php">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.php">Login In</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Image with Text -->
+    <div class="image-container">
+      <div class="text-on-image">Welcome to Our Website</div>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMN3Gw1pGqRpz0pCw5XJtR28XB28izrsVRRnD0wQo6+UxP4En+2MxJi53k97jLhb" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhG81QW33Vr1sxzdm8j5LOAhtz4lCiqJ2fXtgAW1RrjTZxik8sv2YQg2CTVO" crossorigin="anonymous"></script>
+  </body>
+</html>
