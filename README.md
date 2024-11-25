@@ -1,6 +1,6 @@
 # Website Authentication System
 
-This is a simple authentication system built using PHP, MySQL, and Bootstrap. It includes login, signup, and logout functionalities. The project allows users to create an account, log in, and access a personalized homepage. It also provides basic authentication features to protect user data.
+This is a simple authentication system built using PHP, MySQL, and Bootstrap. It includes login, signup, and logout functionalities. The project allows users to create an account, log in, and access a homepage. It also provides basic authentication features to protect user data.
 
 ## Project Structure
 
