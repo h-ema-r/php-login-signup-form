@@ -9,30 +9,34 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $password=$_POST['password'];
 
 
-   $sql ="Select * from `registration` where 
-   username='$username'";
-   $result = mysqli_query($con,$sql);
-   if($result){
-    $num=mysqli_num_rows($result);
-    if($num>0){
+
+   $sql = $con->prepare("Select * from `registration` where 
+   username=?");
+   $sql->bindParam(1,$username,PDO::PARAM_STR);
+   $sql->execute();
+
+
+    if($sql->rowCount()>0){
         //echo "User already exist";
         $user=1;
     }else{
 
-    $sql = "insert into `registration`(username,password)
-    values('$username', '$password')";
+    $sql = $con->prepare("insert into `registration`(username,password)
+    values(?, ?)");
+    $sql->bindParam(1,$username,PDO::PARAM_STR);
+    $sql->bindParam(2,$password,PDO::PARAM_STR);
 
-    $result=mysqli_query($con, $sql);
+    $result=$sql->execute();
 
     if($result){
         //echo " Signup successfully";
         $succes=1;
         header('location:login.php');
     }else{
-        die(mysqli_error($con));
+      die("Error: Unable to sign up. Please try again.");
     }
 }
-   }}
+   }
 
 
 ?>
@@ -76,11 +80,11 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
   <form action="sign.php" method="post">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">username</label>
-    <input type="text" class="form-control" placeholder="Enter your name" name="username">
+    <input type="text" class="form-control" placeholder="Enter your name" name="username" autocomplete="off" required>
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">password</label>
-    <input type="password" class="form-control" placeholder="Enter your password" name="password">
+    <input type="password" class="form-control" placeholder="Enter your password" name="password" autocomplete="off" required>
   </div>
 
   <button type="submit" class="btn btn-primary w-100">Sign up</button>

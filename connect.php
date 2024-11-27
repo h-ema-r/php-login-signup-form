@@ -1,13 +1,20 @@
 <?php
-$hostname='localhost';
+$host='localhost';
 $username='root';
 $password='admin';
-$database='signupforms';
+$dbname='signupforms';
 
-$con=mysqli_connect($hostname, $username, $password, $database);
+$dsn = "mysql:host=$host;dbname=$dbname";
 
-if(!$con){
-    die(mysqli_error($con));
+try {
+    $con = new PDO($dsn, $username, $password);
+
+    $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    echo "Connection successful!";
+
+} catch (PDOException $e) {
+    die("Connection failed: " . $e->getMessage());
 }
 
 ?>
